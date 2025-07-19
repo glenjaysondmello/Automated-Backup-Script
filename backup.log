@@ -22,3 +22,28 @@
 2025-07-18 23:08:56 Old backup removed: backup_2025-02-08_23-52-43.tar.gz
 2025-07-18 23-09-43 Backup Successful: backup_2025-07-18_23-09-43.tar.gz
 2025-07-18 23:09:43 Old backup removed: backup_2025-07-18_23-06-10.tar.gz
+2025-07-19 22-29-22 Encryption backup Failed: backup_2025-07-19_22-29-21.tar.gz
+2025-07-19 22-31-29 Encryption backup Failed: backup_2025-07-19_22-31-29.tar.gz
+2025-07-19 22-33-18 Backup Successful: backup_2025-07-19_22-33-18.tar.gz.gpg
+2025-07-19 22-34-15 Backup Successful: backup_2025-07-19_22-34-15.tar.gz.gpg
+2025-07-19 22:34:56 Restore failed: backup_2025-07-19_22-34-15.tar.gz.gpg
+2025-07-19 22:41:51 Restore failed: backup_2025-07-19_22-34-15.tar.gz.gpg
+2025-07-19 22:42:42 Restore failed: backup_2025-07-19_22-34-15.tar.gz.gpg
+2025-07-19 22:43:46 Restore failed: #!/bin/bash
+2025-07-19 22:44:22 Restore successful: backup_2025-07-19_22-34-15.tar.gz.gpg to /home/mellodglen/RestoredFiles
+2025-07-19 22-50-45 Backup Successful: backup_2025-07-19_22-50-45.tar.gz.gpg
+2025-07-19 22:51:39 Restore failed: backup_2025-07-19_22-50-45.tar.gz.gpg
+2025-07-19 22-51-52 Backup Successful: backup_2025-07-19_22-51-52.tar.gz.gpg
+2025-07-19 22-52-09 Backup Successful: backup_2025-07-19_22-52-09.tar.gz.gpg
+2025-07-19 22-52-17 Backup Successful: backup_2025-07-19_22-52-17.tar.gz.gpg
+2025-07-19 22:53:07 Restore successful: backup_2025-07-19_22-52-17.tar.gz.gpg to /home/mellodglen/RestoredFiles
+2025-07-19 22-55-06 Backup Successful: backup_2025-07-19_22-55-06.tar.gz.gpg
+2025-07-19 22:55:06 Old backup removed: backup_2025-07-19_22-34-15.tar.gz.gpg
+2025-07-19 22:55:25 Restore successful: backup_2025-07-19_22-55-06.tar.gz.gpg to /home/mellodglen/RestoredFiles
+2025-07-19 22:56:15 Restore successful: backup_2025-07-19_22-55-06.tar.gz.gpg to /home/mellodglen/RestoredFiles
+2025-07-19 22-56-32 Backup Successful: backup_2025-07-19_22-56-32.tar.gz.gpg
+2025-07-19 22:56:32 Old backup removed: backup_2025-07-19_22-50-45.tar.gz.gpg
+2025-07-19 22:56:54 Restore successful: backup_2025-07-19_22-56-32.tar.gz.gpg to /home/mellodglen/RestoredFiles
+2025-07-19 22-57-16 Backup Successful: backup_2025-07-19_22-57-16.tar.gz.gpg
+2025-07-19 22:57:16 Old backup removed: backup_2025-07-19_22-51-52.tar.gz.gpg
+2025-07-19 22:57:32 Restore successful: backup_2025-07-19_22-57-16.tar.gz.gpg to /home/mellodglen/RestoredFiles

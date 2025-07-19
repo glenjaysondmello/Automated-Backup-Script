@@ -1,33 +1,30 @@
 #!/bin/bash
 
-SOURCE_DIR="$HOME/Documents"
-BACKUP_DIR="$HOME/AutoBackups/backups"
-LOG_FILE="$HOME/AutoBackups/backup.log"
-
-MAX_BACKUPS=5
+source .env
 
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-
 BACKUP_FILE="backup_$TIMESTAMP.tar.gz"
+ENCRYPTED_FILE="$BACKUP_FILE.gpg"
 
 mkdir -p "$BACKUP_DIR"
 touch "$LOG_FILE"
 
-tar -czvf "$BACKUP_DIR/$BACKUP_FILE" -C "$SOURCE_DIR" .
+# tar -czvf "$BACKUP_DIR/$BACKUP_FILE" -C "$SOURCE_DIR" .
+tar -czvf - -C "$SOURCE_DIR" . | gpg --symmetric --batch --passphrase "$ENCRYPTION_PASSPHRASE" -o "$BACKUP_DIR/$ENCRYPTED_FILE"
 
 if [ $? -eq 0 ]; then
-    echo "$(date +"%Y-%m-%d %H-%M-%S") Backup Successful: $BACKUP_FILE" >>"$LOG_FILE"
-    echo "Backup completed: $BACKUP_FILE"
+    echo "$(date +"%Y-%m-%d %H-%M-%S") Backup Successful: $ENCRYPTED_FILE" >>"$LOG_FILE"
+    echo "Encrypted backup completed: $ENCRYPTED_FILE"
 else
-    echo "$(date +"%Y-%m-%d %H-%M-%S") Backup Failed: $BACKUP_FILE" >>"$LOG_FILE"
-    echo "Backup failed"
+    echo "$(date +"%Y-%m-%d %H-%M-%S") Encryption backup Failed: $BACKUP_FILE" >>"$LOG_FILE"
+    echo "Encryption backup failed"
 fi
 
-BACKUP_COUNT=$(ls -1 $BACKUP_DIR/*.tar.gz 2>/dev/null | wc -l)
+BACKUP_COUNT=$(ls -1 $BACKUP_DIR/*.gpg 2>/dev/null | wc -l)
 
 if [ "$BACKUP_COUNT" -gt "$MAX_BACKUPS" ]; then
     echo "Retention policy: Found $BACKUP_COUNT backups, removing old ones..."
-    OLD_BACKUPS=$(ls -1t $BACKUP_DIR/*.tar.gz | tail -n +$((MAX_BACKUPS + 1)))
+    OLD_BACKUPS=$(ls -1t $BACKUP_DIR/*.gpg | tail -n +$((MAX_BACKUPS + 1)))
 
     for file in $OLD_BACKUPS; do
         rm -f "$file"

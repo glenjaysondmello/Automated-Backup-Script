@@ -15,9 +15,15 @@ tar -czvf - -C "$SOURCE_DIR" . | gpg --symmetric --batch --passphrase "$ENCRYPTI
 if [ $? -eq 0 ]; then
     echo "$(date +"%Y-%m-%d %H-%M-%S") Backup Successful: $ENCRYPTED_FILE" >>"$LOG_FILE"
     echo "Encrypted backup completed: $ENCRYPTED_FILE"
+
+    echo "AutoBackup Pro successfully created $ENCRYPTED_FILE" | \
+    mail -s "AutoBackup Pro: Backups Succcessful - $ENCRYPTED_FILE" "$EMAIL"
 else
     echo "$(date +"%Y-%m-%d %H-%M-%S") Encryption backup Failed: $BACKUP_FILE" >>"$LOG_FILE"
     echo "Encryption backup failed"
+    
+    echo "AutoBackup Pro failed to create a backup at $TIMESTAMP" | \
+    mail -s "AutoBackup Pro: Backup Failed" "$EMAIL"
 fi
 
 BACKUP_COUNT=$(ls -1 $BACKUP_DIR/*.gpg 2>/dev/null | wc -l)

@@ -18,7 +18,13 @@ gpg --batch --yes --passphrase "$ENCRYPTION_PASSPHRASE" -d "$BACKUP_DIR/$ENCRYPT
 if [ $? -eq 0 ]; then
     echo "$(date +"%Y-%m-%d %H:%M:%S") Restore successful: $ENCRYPTED_FILE to $RESTORE_DIR" >>"$LOG_FILE"
     echo "Backup restored to: $RESTORE_DIR"
+
+     echo "AutoBackup Pro successfully restored $ENCRYPTED_FILE to $RESTORE_DIR" | \
+    mail -s "AutoBackup Pro: Restore Successful - $ENCRYPTED_FILE" "$EMAIL"
 else
     echo "$(date +"%Y-%m-%d %H:%M:%S") Restore failed: $ENCRYPTED_FILE" >>"$LOG_FILE"
     echo "Restore failed"
+
+    echo "AutoBackup Pro failed to restore $ENCRYPTED_FILE at $TIMESTAMP" | \
+    mail -s "AutoBackup Pro: Restore Failed" "$EMAIL"
 fi

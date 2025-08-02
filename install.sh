@@ -2,7 +2,7 @@
 
 INSTALL_DIR="/usr/local/bin"
 SCRIPT_NAME="autobackup"
-SCRIPT_PATH="${pwd}/menu.sh"
+SCRIPT_PATH="$(realpath "$(dirname "$0")/menu.sh")"
 
 sudo ln -sf "$SCRIPT_PATH" "$INSTALL_DIR/$SCRIPT_NAME"
 
